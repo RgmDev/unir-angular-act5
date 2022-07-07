@@ -13,7 +13,11 @@ export class EntriesService {
     this.arrEntries = ENTRIES;
   }
 
-  getAll() : Entry[] {
+  getAll(): Entry[] {
     return this.arrEntries;
+  }
+
+  create(newEntry: Entry): void {
+    this.arrEntries.push(newEntry);
   }
 }

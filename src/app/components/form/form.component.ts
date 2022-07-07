@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EntriesService } from 'src/app/services/entries.service';
 
 @Component({
   selector: 'app-form',
@@ -16,20 +17,25 @@ export class FormComponent implements OnInit {
   }
   now: Date = new Date();
 
-  constructor() {
+  constructor(
+    private entriesServices: EntriesService
+  ) {
     this.resetForm();
    }
 
   ngOnInit(): void {
+    
   }
 
   addEntry(): void {
     if(!this.validationFields()) {
       return;
     } 
-    this.newEntry.image = 'https://picsum.photos/300';
-    console.log(this.newEntry);
+    this.newEntry.image = 'https://picsum.photos/300?random='+Math.floor(Math.random() * 100);
+    this.newEntry.date = new Date(this.newEntry.date);
+    this.entriesServices.create(this.newEntry);
     this.resetForm();
+    alert('Has agregado una noticia');
   }
 
   validationFields(): boolean {
