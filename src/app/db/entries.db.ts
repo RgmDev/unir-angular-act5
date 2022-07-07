@@ -1,10 +1,10 @@
 import { Entry } from "../interfaces/entry.interface";
 
-const ENTRIES: Entry[] = [
+export const ENTRIES: Entry[] = [
   {
     title: 'Reabre el metro de Gran vía',
     image: 'https://picsum.photos/id/1033/300',
-    text: 'El metro de Gran vía en Madrid vuele a recuperar el servicio tras 9 meses de cierres por obras, los usuarios ya pueden volver a meterse en este hervidero.',
+    text: 'El metro de Gran vía en Madrid vuele a recuperar el servicio tras 9 meses de cierre por obras, los usuarios ya pueden volver a meterse en este hervidero.',
     date: new Date('2022-02-13 10:00:50')
   },
   {

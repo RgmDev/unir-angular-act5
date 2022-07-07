@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-12 col-md-6 col-lg-3">
-    <app-list-item></app-list-item>
+  <div class="col-12 col-md-6 col-lg-3" *ngFor="let entry of entries">
+    <app-list-item [entry]="entry"></app-list-item>
   </div>
 </div>

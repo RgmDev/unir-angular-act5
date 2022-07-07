@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Entry } from 'src/app/interfaces/entry.interface';
+import { EntriesService } from 'src/app/services/entries.service';
 
 @Component({
   selector: 'app-blog',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlogComponent implements OnInit {
 
-  constructor() { }
+  entries: Entry[] | any;
+
+  constructor(
+    private entriesServices: EntriesService
+  ) { }
 
   ngOnInit(): void {
+    this.entries = this.entriesServices.getAll();
   }
 
 }

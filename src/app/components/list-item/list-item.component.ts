@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Entry } from 'src/app/interfaces/entry.interface';
 
 @Component({
   selector: 'app-list-item',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListItemComponent implements OnInit {
 
+  @Input() entry: Entry | any;
+
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }
