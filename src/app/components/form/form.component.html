@@ -1,23 +1,36 @@
 <div class="row">
   <div class="col-12">
-    <h2>Añadir noticia</h2>
+    <h2>Nueva noticia</h2>
   </div>
   <div class="col-12 col-md-6">
     <div>
       <label for="titulo">Título</label>
-      <input class="form-control" type="text" name="titulo" id="titulo">
+      <input class="form-control" [ngClass]="{'is-invalid': validations.title}" type="text" name="titulo" id="titulo" [(ngModel)]="newEntry.title">
+      <div class="text-danger small" *ngIf="validations.title">
+        Introduce el título
+      </div>
     </div>
     <div>
       <label for="image">Imagen</label>
-      <input class="form-control" type="file" name="imagen" id="imagen">
+      <input class="form-control" [ngClass]="{'is-invalid': validations.image}" type="file" name="imagen" id="imagen" [(ngModel)]="newEntry.image">
+      <div class="text-danger small" *ngIf="validations.image">
+        Introduce la imagen
+      </div>
     </div>
     <div>
       <label for="date">Fecha</label>
-      <input class="form-control" type="date" name="date" id="date">
+      <input class="form-control" [ngClass]="{'is-invalid': validations.date}" type="date" name="date" id="date" [(ngModel)]="newEntry.date">
+      <div class="text-danger small" *ngIf="validations.date">
+        Introduce la fecha
+      </div>
     </div>
   </div>
   <div class="col-12 col-md-6">
     <label for="text">Texto</label>
-    <textarea class="form-control" name="text" id="text" cols="20" rows="6"></textarea>
+    <textarea class="form-control" [ngClass]="{'is-invalid': validations.text}" name="text" id="text" cols="20" rows="6" [(ngModel)]="newEntry.text"></textarea>
+    <div class="text-danger small" *ngIf="validations.text">
+      Introduce el texto
+    </div>
   </div>
 </div>
+<button class="btn btn-warning mt-3" (click)="addEntry()">Añadir</button>
