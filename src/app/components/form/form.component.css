@@ -1,3 +1,23 @@
 textarea {
   resize: none;
 }
+
+.custom-alert {
+  position: fixed;
+  width: 100%;
+  max-width: 300px;
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  z-index: 999;
+}
+
+.alert-hidden {
+  opacity: 0;
+  transition: 1s;
+}
+
+.alert-show {
+  opacity: 1;
+  transition: 1s;
+}

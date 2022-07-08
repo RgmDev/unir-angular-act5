@@ -16,6 +16,8 @@ export class FormComponent implements OnInit {
     date: false
   }
   now: Date = new Date();
+  showForm: boolean = false;
+  showAlert: boolean = false;
 
   constructor(
     private entriesServices: EntriesService
@@ -35,7 +37,8 @@ export class FormComponent implements OnInit {
     this.newEntry.date = new Date(this.newEntry.date);
     this.entriesServices.create(this.newEntry);
     this.resetForm();
-    alert('Has agregado una noticia');
+    this.showForm = false;
+    this.showMessage();
   }
 
   validationFields(): boolean {
@@ -67,6 +70,11 @@ export class FormComponent implements OnInit {
       image: "",
       date: this.now
     }
+  }
+
+  showMessage() {
+    this.showAlert = true;
+    setTimeout(() => {this.showAlert = false}, 4000)
   }
 
 }
